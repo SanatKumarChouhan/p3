@@ -68,11 +68,11 @@
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports -->
 		
-		<!-- <dependency>
+		<dependency>
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports</artifactId>
 			<version>6.13.0</version>
-		</dependency> -->
+		</dependency>
 
 		<dependency>
 			<groupId>org.apache.maven.plugins</groupId>
