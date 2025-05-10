@@ -21,6 +21,14 @@ import in.co.rays.project_3.util.DataUtility;
 import in.co.rays.project_3.util.PropertyReader;
 import in.co.rays.project_3.util.ServletUtility;
 
+
+
+/**
+ *  Cart List functionality controller to perform Search and List operation.
+ *  
+ * @author SANAT KUMAR CHOUHAN
+ *
+ */
 @WebServlet(name = "CartListCtl", urlPatterns = { "/ctl/CartListCtl" })
 public class CartListCtl extends BaseCtl {
 

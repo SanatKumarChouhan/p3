@@ -6,8 +6,14 @@ import in.co.rays.project_3.dto.CartDTO;
 import in.co.rays.project_3.exception.ApplicationException;
 import in.co.rays.project_3.exception.DuplicateRecordException;
 
+/**
+ * Interface of Cart model
+ * 
+ * @author SANAT KUMAR CHOUHAN
+ *
+ */
 public interface CartModelInt {
-	
+
 	public long add(CartDTO dto) throws ApplicationException, DuplicateRecordException;
 
 	public void delete(CartDTO dto) throws ApplicationException;

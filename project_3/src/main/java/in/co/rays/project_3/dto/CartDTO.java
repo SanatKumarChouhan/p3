@@ -2,6 +2,13 @@ package in.co.rays.project_3.dto;
 
 import java.util.Date;
 
+/**
+ * User JavaDto encapsulates user attributes
+ * 
+ * @author SANAT KUMAR CHOUHAN
+ *
+ */
+
 public class CartDTO extends BaseDTO {
 
 	private static final long serialVersionUID = 1L;

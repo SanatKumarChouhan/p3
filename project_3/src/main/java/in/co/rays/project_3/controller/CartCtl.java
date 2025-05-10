@@ -22,6 +22,13 @@ import in.co.rays.project_3.util.DataValidator;
 import in.co.rays.project_3.util.PropertyReader;
 import in.co.rays.project_3.util.ServletUtility;
 
+
+/**
+ * Cart functionality controller to perform add, delete and update operation.
+ * 
+ * @author SANAT KUMAR CHOUHAN
+ *
+ */
 @WebServlet(name = "CartCtl", urlPatterns = { "/ctl/CartCtl" })
 public class CartCtl extends BaseCtl {
 

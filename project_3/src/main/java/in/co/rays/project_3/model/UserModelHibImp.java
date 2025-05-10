@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -28,6 +29,7 @@ import in.co.rays.project_3.util.HibDataSource;
  *
  */
 public class UserModelHibImp implements UserModelInt {
+	private static Logger log = Logger.getLogger(UserModelHibImp.class);
 
 	/**
 	 * Add a User.
@@ -39,6 +41,7 @@ public class UserModelHibImp implements UserModelInt {
 	 * @throws ApplicationException     the application exception
 	 */
 	public long add(UserDTO dto) throws ApplicationException, DuplicateRecordException {
+		log.debug("CartModel add start");
 
 		System.out.println("in addddddddddddd");
 		/* log.debug("usermodel hib start"); */
@@ -59,6 +62,7 @@ public class UserModelHibImp implements UserModelInt {
 			dto.getId();
 			tx.commit();
 		} catch (HibernateException e) {
+			log.error(e);
 			e.printStackTrace();
 			// TODO: handle exception
 			if (tx != null) {
@@ -69,7 +73,7 @@ public class UserModelHibImp implements UserModelInt {
 		} finally {
 			session.close();
 		}
-		/* log.debug("Model add End"); */
+		 log.debug("CartModel add End"); 
 		return dto.getId();
 
 	}
@@ -322,7 +326,7 @@ public class UserModelHibImp implements UserModelInt {
 	 * @throws ApplicationException the application exception
 	 */
 	public UserDTO authenticate(String login, String password) throws ApplicationException {
-		// TODO Auto-generated method stub
+		log.debug("CartModel authenticate start");
 		System.out.println(login + "kkkkk" + password);
 		Session session = null;
 		UserDTO dto = null;
@@ -338,6 +342,7 @@ public class UserModelHibImp implements UserModelInt {
 			dto = null;
 
 		}
+		log.debug("CartModel authenticate end");
 		return dto;
 	}
 
@@ -367,6 +372,7 @@ public class UserModelHibImp implements UserModelInt {
 	public boolean changePassword(long id, String newPassword, String oldPassword)
 			throws ApplicationException, RecordNotFoundException {
 		// TODO Auto-generated method stub
+		log.debug("CartModel changePassword start");
 		boolean flag = false;
 		UserDTO dtoExist = null;
 
@@ -403,6 +409,7 @@ public class UserModelHibImp implements UserModelInt {
 
 		EmailUtility.sendMail(msg);
 
+		log.debug("CartModel changePassword end");
 		return flag;
 
 	}
@@ -418,6 +425,7 @@ public class UserModelHibImp implements UserModelInt {
 
 	public boolean forgetPassword(String login) throws ApplicationException, RecordNotFoundException {
 		// TODO Auto-generated method stub
+		log.debug("CartModel forgetPassword start");
 		UserDTO userData = findByLogin(login);
 		boolean flag = false;
 		if (userData == null) {
@@ -443,6 +451,7 @@ public class UserModelHibImp implements UserModelInt {
 		EmailUtility.sendMail(msg);
 		flag = true;
 
+		log.debug("CartModel forgetPassword end");
 		return flag;
 	}
 
@@ -457,6 +466,7 @@ public class UserModelHibImp implements UserModelInt {
 	 */
 
 	public boolean resetPassword(UserDTO dto) throws ApplicationException, RecordNotFoundException {
+		log.debug("CartModel resetPassword start");
 		// TODO Auto-generated method stub
 		String newPassword = String.valueOf(new Date().getTime()).substring(0, 4);
 		UserDTO userData = findByPK(dto.getId());
@@ -483,6 +493,7 @@ public class UserModelHibImp implements UserModelInt {
 
 		EmailUtility.sendMail(msg);
 
+		log.debug("CartModel resetPassword end");
 		return true;
 	}
 
@@ -496,6 +507,7 @@ public class UserModelHibImp implements UserModelInt {
 	 * @throws ApplicationException     the application exception
 	 */
 	public long registerUser(UserDTO dto) throws ApplicationException, DuplicateRecordException {
+		log.debug("CartModel registerUser start");
 		// TODO Auto-generated method stub
 		long pk = add(dto);
 
@@ -514,6 +526,7 @@ public class UserModelHibImp implements UserModelInt {
 
 		EmailUtility.sendMail(msg);
 
+		log.debug("CartModel registerUser end");
 		return pk;
 	}
 

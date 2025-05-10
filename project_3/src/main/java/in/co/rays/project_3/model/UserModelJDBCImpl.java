@@ -109,6 +109,7 @@ public class UserModelJDBCImpl implements UserModelInt {
 	}
 
 	public void delete(UserDTO dto) throws ApplicationException {
+		log.debug("Model delete start");
 		Connection conn = null;
 		try {
 			conn = JDBCDataSource.getConnection();
@@ -130,7 +131,7 @@ public class UserModelJDBCImpl implements UserModelInt {
 		} finally {
 			JDBCDataSource.closeConnection(conn);
 		}
-		log.debug("Model delete Started");
+		log.debug("Model delete end");
 
 	}
 

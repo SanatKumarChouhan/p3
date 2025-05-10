@@ -14,6 +14,13 @@ import in.co.rays.project_3.exception.ApplicationException;
 import in.co.rays.project_3.exception.DuplicateRecordException;
 import in.co.rays.project_3.util.HibDataSource;
 
+
+/**
+ * Hibernate implements of Cart model.
+ * 
+ * @author SANAT KUMAR CHOUHAN
+ *
+ */
 public class CartModelHibImp implements CartModelInt {
 
 	@Override
